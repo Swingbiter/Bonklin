@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5bbyjsu2f1y1"]
+
+[ext_resource type="Script" path="res://player/SkateGoblin.gd" id="1_261ch"]
+[ext_resource type="Script" path="res://player/SkateHUD.gd" id="2_6wbci"]
+[ext_resource type="Theme" uid="uid://dqpi7q86nj3eu" path="res://main_menu/theme.tres" id="2_64iu0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tv06r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hcj1a"]
+
+[node name="SkateGoblin" type="CharacterBody3D"]
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_snap_length = 0.0
+script = ExtResource("1_261ch")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_tv06r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hcj1a")
+
+[node name="YawAxis" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503561, 0)
+
+[node name="Camera3D" type="Camera3D" parent="YawAxis"]
+current = true
+fov = 95.0
+size = 68.424
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_6wbci")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_64iu0")
+
+[node name="lbl_speed" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "1000"

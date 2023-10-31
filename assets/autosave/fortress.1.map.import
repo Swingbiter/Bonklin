@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cihqglg52h1wp"
+path="res://.godot/imported/fortress.1.map-f294d43277945d1652bbedae84438035.tres"
+
+[deps]
+
+source_file="res://assets/autosave/fortress.1.map"
+dest_files=["res://.godot/imported/fortress.1.map-f294d43277945d1652bbedae84438035.tres"]
+
+[params]
+

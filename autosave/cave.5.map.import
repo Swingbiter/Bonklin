@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://hi6a5urse3jl"
+path="res://.godot/imported/cave.5.map-1ec9e99946be2f6ef24eb9f4b80af29f.tres"
+
+[deps]
+
+source_file="res://autosave/cave.5.map"
+dest_files=["res://.godot/imported/cave.5.map-1ec9e99946be2f6ef24eb9f4b80af29f.tres"]
+
+[params]
+

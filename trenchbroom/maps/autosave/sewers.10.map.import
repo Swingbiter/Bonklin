@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://x1b5otloar4g"
+path="res://.godot/imported/sewers.10.map-85d4bb5734492d252c3d2b4577226920.tres"
+
+[deps]
+
+source_file="res://trenchbroom/maps/autosave/sewers.10.map"
+dest_files=["res://.godot/imported/sewers.10.map-85d4bb5734492d252c3d2b4577226920.tres"]
+
+[params]
+

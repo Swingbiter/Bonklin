@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1qc3y5iwhscw"]
+
+[ext_resource type="Script" path="res://main_menu/Results.gd" id="1_f5r6v"]
+[ext_resource type="Theme" uid="uid://dqpi7q86nj3eu" path="res://main_menu/theme.tres" id="2_k7ody"]
+
+[node name="Results" type="Node2D"]
+script = ExtResource("1_f5r6v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_k7ody")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -342.0
+offset_right = 311.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level: "
+
+[node name="lbl_level" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "NAME"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "TIME: "
+
+[node name="lbl_time" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "BONKS: "
+
+[node name="lbl_bonk" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "DASHS: "
+
+[node name="lbl_dash" type="Label" parent="CanvasLayer/Control/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="btn_main_menu" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -373.0
+offset_top = 16.0
+offset_right = -13.0
+offset_bottom = 84.0
+grow_horizontal = 0
+text = "MAIN MENU"
+
+[node name="btn_retry" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -142.0
+offset_right = 180.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RETRY"
+
+[connection signal="pressed" from="CanvasLayer/Control/btn_main_menu" to="." method="_on_btn_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/btn_retry" to="." method="_on_btn_retry_pressed"]

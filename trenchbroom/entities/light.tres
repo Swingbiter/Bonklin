@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://ph2d71odeij4"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="1_rmjny"]
+[ext_resource type="Script" path="res://trenchbroom/entities/light.gd" id="2_n8r3h"]
+
+[resource]
+script = ExtResource("1_rmjny")
+script_class = ExtResource("2_n8r3h")
+classname = "Light"
+description = ""
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = "OmniLight3D"
+transient_node = false

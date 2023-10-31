@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TrenchBroomTag" load_steps=2 format=3 uid="uid://b26gqscpoj82u"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_tag.gd" id="1_b0iis"]
+
+[resource]
+script = ExtResource("1_b0iis")
+tag_name = "Transparent"
+tag_attributes = Array[String](["_transparent"])
+tag_match_type = 1
+tag_pattern = ""
+texture_name = ""

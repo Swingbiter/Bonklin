@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://chujawxrnlww2"]
+
+[ext_resource type="Script" path="res://player/goblin.gd" id="1_trj2r"]
+[ext_resource type="Script" path="res://player/Hammer.gd" id="2_35pxl"]
+[ext_resource type="PackedScene" uid="uid://cjvaqc3pgd1k3" path="res://assets/hammer.glb" id="2_g0irq"]
+[ext_resource type="AudioStream" uid="uid://donlq2i3snvik" path="res://assets/bonk.mp3" id="4_o7bmk"]
+[ext_resource type="PackedScene" uid="uid://clqclcapsigic" path="res://player/hud.tscn" id="5_30m4b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82gk2"]
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8dg2d"]
+height = 1.5
+
+[sub_resource type="Animation" id="Animation_v3wv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.69122, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7a4mh"]
+resource_name = "bonk"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.2), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.846485, 0.815069, 0), Vector3(-1.69122, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s8sp8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snqm2"]
+_data = {
+"RESET": SubResource("Animation_v3wv8"),
+"bonk": SubResource("Animation_7a4mh"),
+"idle": SubResource("Animation_s8sp8")
+}
+
+[node name="Goblin" type="CharacterBody3D" groups=["player"]]
+floor_max_angle = 0.523599
+script = ExtResource("1_trj2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_82gk2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_8dg2d")
+
+[node name="YawAxis" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.492, 0)
+
+[node name="Camera3D" type="Camera3D" parent="YawAxis"]
+current = true
+fov = 100.0
+
+[node name="Hammer" type="Node3D" parent="YawAxis/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232684, 0, -0.150042)
+script = ExtResource("2_35pxl")
+
+[node name="Graphics" type="Node3D" parent="YawAxis/Camera3D/Hammer"]
+transform = Transform3D(1, 0, 0, 0, -0.120133, 0.992757, 0, -0.992757, -0.120133, 0, 0, 0)
+
+[node name="HammerModel" parent="YawAxis/Camera3D/Hammer/Graphics" instance=ExtResource("2_g0irq")]
+transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YawAxis/Camera3D/Hammer"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_snqm2")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="YawAxis/Camera3D/Hammer"]
+stream = ExtResource("4_o7bmk")
+
+[node name="HUD" parent="." instance=ExtResource("5_30m4b")]

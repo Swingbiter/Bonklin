@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw6tlfr18hgrq"]
+
+[ext_resource type="Theme" uid="uid://dqpi7q86nj3eu" path="res://main_menu/theme.tres" id="1_7u5oa"]
+[ext_resource type="Script" path="res://main_menu/tutorial.gd" id="1_rrtyc"]
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource("1_rrtyc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7u5oa")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -789.0
+offset_top = -513.0
+offset_right = 789.0
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=Aquamarine]Movement[/color]
+[color=DARK_ORANGE]WASD[/color]
+Only [color=CRIMSON]losers[/color] use [color=DARK_ORANGE]W / S[/color]
+
+[color=Aquamarine]Air Strafing[/color]
+Hold [color=DARK_ORANGE]A[/color] and [color=DARK_ORANGE]D[/color] while turning your mouse in that direction.
+The faster you go, the slower you'll have to turn to maintain momentum.
+If you do this correctly, you will even gain speed!
+
+[color=Aquamarine]BONK[/color]
+Use [color=DARK_ORANGE]LEFT MOUSE[/color] on a surface to [color=MAROON]BONK[/color]
+[color=MAROON]BONK[/color] will strongly bounce you modified by the angle to the surface
+
+[color=Aquamarine]Goblin Dash[/color]
+Hold [color=DARK_ORANGE]SHIFT[/color] to slow your movement
+Release [color=DARK_ORANGE]SHIFT[/color] to regain earlier momentum where you're looking
+If you're [color=CRIMSON]too slow[/color], it'll give you a lil boost too
+Use [color=MAROON]BONK[/color] or land on the ground to regain charges
+
+"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_bottom = 68.0
+grow_horizontal = 0
+text = "BACK"
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

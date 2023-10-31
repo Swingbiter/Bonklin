@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=8 format=3 uid="uid://djkaf3j6ilc0x"]
+
+[ext_resource type="Script" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="1_gyiwq"]
+[ext_resource type="Resource" uid="uid://dxp37dladbquv" path="res://addons/qodot/game_definitions/fgd/solid_classes/worldspawn_solid_class.tres" id="1_qdv0d"]
+[ext_resource type="Resource" uid="uid://cw4s1hnxqetee" path="res://addons/qodot/game_definitions/fgd/solid_classes/func_group_solid_class.tres" id="2_313i3"]
+[ext_resource type="Resource" uid="uid://bnbdy0cky2bo" path="res://addons/qodot/game_definitions/fgd/solid_classes/group_solid_class.tres" id="3_mtnq4"]
+[ext_resource type="Resource" uid="uid://bgmdufcfvrjxy" path="res://trenchbroom/entities/killzone.tres" id="4_f8fih"]
+[ext_resource type="Resource" uid="uid://cf25kjpbi56ih" path="res://trenchbroom/entities/endzone.tres" id="5_ua3rs"]
+[ext_resource type="Resource" uid="uid://ph2d71odeij4" path="res://trenchbroom/entities/light.tres" id="6_vhr3n"]
+
+[resource]
+script = ExtResource("1_gyiwq")
+export_file = false
+target_folder = "C:/Users/Swingbiter/Desktop/TrenchBroom-Win64-v2023.1-Release/games/Bonklin"
+fgd_name = "my_fgds"
+base_fgd_files = Array[Resource]([])
+entity_definitions = Array[Resource]([ExtResource("1_qdv0d"), ExtResource("2_313i3"), ExtResource("3_mtnq4"), ExtResource("4_f8fih"), ExtResource("5_ua3rs"), ExtResource("6_vhr3n")])

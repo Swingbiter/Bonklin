@@ -1,0 +1,16 @@
+// Game: Bonklin
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/low_res"
+// brush 0
+{
+( -320 0 -64 ) ( -320 1 -64 ) ( -320 0 -63 ) low_res/CONCRETE_1A 0 0 0 1 1
+( -64 -320 -64 ) ( -64 -320 -63 ) ( -63 -320 -64 ) low_res/CONCRETE_1A 0 0 0 1 1
+( -64 0 -64 ) ( -63 0 -64 ) ( -64 1 -64 ) low_res/CONCRETE_1A 0 0 0 1 1
+( 0 128 0 ) ( 0 129 0 ) ( 1 128 0 ) low_res/CONCRETE_1A 0 0 0 1 1
+( 0 320 0 ) ( 1 320 0 ) ( 0 320 1 ) low_res/CONCRETE_1A 0 0 0 1 1
+( 384 128 0 ) ( 384 128 1 ) ( 384 129 0 ) low_res/CONCRETE_1A 0 0 0 1 1
+}
+}
