@@ -9,9 +9,12 @@ var levels = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var files = DirAccess.get_files_at("res://scenes")
+	print(files)
 	for level in files:
 		if level.split(".")[1] != "tscn":
 			continue
+		if ".remap" in level:
+			level = level.trim_suffix(".remap")
 		var btn = lv_btn.instantiate()
 		btn.level_name = level.split(".")[0]
 		btn.level_path = "res://scenes/" + level
